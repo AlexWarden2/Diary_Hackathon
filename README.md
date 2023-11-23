@@ -34,6 +34,7 @@ Once this creates a file called \\\`.env`\\\ open it
 4. Go to Elephant SQL: \\\ `https://api.elephantsql.com/` \\\
 and make an account. You will then need to click 'Create new instance' in the top right. 
 Name the Database and click through the green ok boxes until you reach a page with the details section. 
+![Alt text](image.png)
 
 \\\ Coppy the URL that begins with 'postgres://...'
 
