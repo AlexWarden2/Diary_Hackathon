@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-document.getElementById("register").addEventListener("submit", async (e) => {
-=======
-document
-  .getElementById('register-form')
-  .addEventListener('submit', async (e) => {
->>>>>>> 71b4f9016e841314a0e7a7e9daedd16f286683e5
+document.getElementById("register-form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const form = new FormData(e.target);
@@ -21,10 +15,7 @@ document
       })
     };
 
-    const response = await fetch(
-      'http://localhost:3000/users/register',
-      options
-    );
+    const response = await fetch('http://localhost:3000/users/register', options);
     const data = await response.json();
 
     if (response.status === 201) {
@@ -32,9 +23,5 @@ document
     } else {
       alert(data.error);
     }
-<<<<<<< HEAD
 })
 
-=======
-  });
->>>>>>> 71b4f9016e841314a0e7a7e9daedd16f286683e5

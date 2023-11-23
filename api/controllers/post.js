@@ -6,8 +6,8 @@ const index = async (req, res) => {
   try {
     const posts = await Post.getAll();
     res.json(posts);
-  } catch (e) {
-    res.status(500).json({ error: e.message });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
 
@@ -19,8 +19,8 @@ const create = async (req, res) => {
 
     const result = await Post.create({ ...data, user_id: token.user_id });
     res.status(201).send(result);
-  } catch (e) {
-    res.status(400).json({ error: e.message });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 };
 
@@ -29,8 +29,8 @@ const show = async (req, res) => {
     const id = parseInt(req.params.id);
     const post = await Post.getOneById(id);
     res.json(post);
-  } catch (e) {
-    res.status(404).json({ error: e.message });
+  } catch (err) {
+    res.status(404).json({ error: err.message });
   }
 };
 
@@ -50,8 +50,8 @@ const destroy = async (req, res) => {
       res.status(403).json({
         error: 'You must be an admin/author to delete this!'});
     }
-  } catch (e) {
-    res.status(404).json({ error: e.message });
+  } catch (err) {
+    res.status(404).json({ error: err.message });
   }
 };
 
