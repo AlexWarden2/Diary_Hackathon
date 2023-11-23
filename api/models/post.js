@@ -14,9 +14,7 @@ class Post {
   }
 
   static async getOneById(id) {
-    const response = await db.query('SELECT * FROM post WHERE post_id = $1', [
-      id
-    ]);
+    const response = await db.query('SELECT * FROM post WHERE post_id = $1', [id]);
     if (response.rows.length != 1) {
       throw new Error('Unable to locate post.');
     }
@@ -25,20 +23,28 @@ class Post {
 
   static async create(data) {
     const { title, content, user_id } = data;
-    let response = await db.query(
-      'INSERT INTO post (title, content, user_id) VALUES ($1, $2, $3) RETURNING post_id;',
-      [title, content, user_id]
-    );
+    let response = await db.query('INSERT INTO post (title, content, user_id) VALUES ($1, $2, $3) RETURNING post_id;', [title, content, user_id]);
     const newId = response.rows[0].post_id;
+///////////////////////////////////////
+    // const currentDate = new Date();
+    // const formattedDate = `${currentDate.toDateString()} ${currentDate.toLocaleTimeString()}`;
+    // const postElement = document.createElement('div');
+    // postElement.innerHTML = `
+    //   <p>Posted on: ${formattedDate}</p>
+    // `;
+
     const newPost = await Post.getOneById(newId);
+
+    // newPost.appendChild(postElement);
+
     return newPost;
   }
 
+
+
   async destroy() {
     let response = await db.query(
-      'DELETE FROM post WHERE post_id = $1 RETURNING *;',
-      [this.id]
-    );
+      'DELETE FROM post WHERE post_id = $1 RETURNING *;', [this.id] );
     return new Post(response.rows[0]);
   }
 }

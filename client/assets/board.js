@@ -31,8 +31,6 @@ const createPostElement = (data) => {
     }
   });
 
-  post.appendChild(deleteBtn);
-
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
   editBtn.id = 'edit';

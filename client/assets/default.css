@@ -1,4 +1,4 @@
-/*body{
+body{
     margin: 40px auto;
     max-width: 650px;
     line-height: 1.6;
@@ -21,7 +21,7 @@ fieldset {
     display: flex;
     flex-direction: column;
     padding: 0.2rem;
-}*/
+}
 
 body{
     margin:0;
@@ -63,9 +63,9 @@ a {
 }
 
 a:hover {
-   background-color: rgb(160, 90, 226);
+   background-color: rgb(195, 137, 250);
 }
 
-button {
+/* button {
     
-}
+} */
