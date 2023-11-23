@@ -22,25 +22,21 @@ class Post {
   }
 
   static async create(data) {
+    ///////////////////////////////////////
+    const today = new Date()
+    const t = new Intl.DateTimeFormat("en-GB", {
+      dateStyle: "full",
+      timeStyle: "long"})
+    const timePosted = t.format(today);
+    ///////////////////////////////////////////
+
     const { title, content, user_id } = data;
-    let response = await db.query('INSERT INTO post (title, content, user_id) VALUES ($1, $2, $3) RETURNING post_id;', [title, content, user_id]);
+    let response = await db.query('INSERT INTO post (title, content, user_id, timeDate) VALUES ($1, $2, $3, $4) RETURNING post_id;', [title, content, user_id, timePosted]);
     const newId = response.rows[0].post_id;
-///////////////////////////////////////
-    // const currentDate = new Date();
-    // const formattedDate = `${currentDate.toDateString()} ${currentDate.toLocaleTimeString()}`;
-    // const postElement = document.createElement('div');
-    // postElement.innerHTML = `
-    //   <p>Posted on: ${formattedDate}</p>
-    // `;
 
     const newPost = await Post.getOneById(newId);
-
-    // newPost.appendChild(postElement);
-
     return newPost;
   }
-
-
 
   async destroy() {
     let response = await db.query(
