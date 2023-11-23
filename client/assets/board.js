@@ -1,4 +1,11 @@
 const createPostElement = (data) => {
+// ////////////////////////////////////////////////
+//   const today = new Date()
+//   const t = new Intl.DateTimeFormat("en-en", {
+//     dateStyle: "full",
+//     timeStyle: "full"})
+//   const timePosted = t.format(today);
+// ////////////////////////////////////////////////
   const post = document.createElement("div");
   post.className = "post";
 
@@ -9,6 +16,10 @@ const createPostElement = (data) => {
   const content = document.createElement("p");
   content.textContent = data["content"];
   post.appendChild(content);
+
+  const date = document.createElement("p2");
+  date.textContent = data["timedate"];
+  post.appendChild(date);
 
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
@@ -77,7 +88,6 @@ const loadPosts = async () => {
 
   if (response.status === 200) {
     const posts = await response.json();
-
     const container = document.getElementById('posts');
 
     posts.forEach((p) => {
