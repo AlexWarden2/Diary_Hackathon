@@ -1,11 +1,5 @@
 const createPostElement = (data) => {
-// ////////////////////////////////////////////////
-//   const today = new Date()
-//   const t = new Intl.DateTimeFormat("en-en", {
-//     dateStyle: "full",
-//     timeStyle: "full"})
-//   const timePosted = t.format(today);
-// ////////////////////////////////////////////////
+
   const post = document.createElement("div");
   post.className = "post";
 
@@ -17,7 +11,7 @@ const createPostElement = (data) => {
   content.textContent = data["content"];
   post.appendChild(content);
 
-  const date = document.createElement("p2");
+  const date = document.createElement("p");
   date.textContent = data["timedate"];
   post.appendChild(date);
 
