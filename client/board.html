@@ -11,23 +11,31 @@
   </head>
   <body>
     <nav>
-      <button id="logout">Log out</button>
+      <a id="logout" href="./index.html">Logout</a>
+      <!--<button id="logout">Log out</button>-->
     </nav>
     <header>
         <h1>This is your diary</h1>
-        <em>A super secret list...</em>
+        <em>Your super secret list...</em>
     </header>
     <hr />
     <main>
+      <div class="search">
+        <label for="search">Make a search</label>
+        <input type="text" id="search" name="search" placeholder="type category/date...."/>
+        <button id="searchBtn">Submit</button>
+      </div>
       <div class="container" id="posts"></div>
       <hr />
+     
       <form id="post-form">
+        <p>Create a new diary entry</p>
         <fieldset>
           <label for="title">Title:</label>
           <input type="text" id="title" name="title" required />
         </fieldset>
-        <fieldset>
-          <label for="title">Content:</label>
+        <fieldset id="contentId"> 
+          <label for="title">Enter your text below:</label>
           <textarea id="content" name="content" required></textarea>
         </fieldset>
         <input type="submit" value="Post" />
