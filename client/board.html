@@ -20,8 +20,14 @@
     </header>
     <hr />
     <main>
+      <div class="search">
+        <label for="search">Make a search</label>
+        <input type="text" id="search" name="search" placeholder="type category/date...."/>
+        <button id="searchBtn">Submit</button>
+      </div>
       <div class="container" id="posts"></div>
       <hr />
+     
       <form id="post-form">
         <p>Create a new diary entry</p>
         <fieldset>
@@ -29,8 +35,7 @@
           <input type="text" id="title" name="title" required />
         </fieldset>
         <fieldset id="contentId"> 
-          <label for="title">Enter your test below:</label>
-          
+          <label for="title">Enter your text below:</label>
           <textarea id="content" name="content" required></textarea>
         </fieldset>
         <input type="submit" value="Post" />
