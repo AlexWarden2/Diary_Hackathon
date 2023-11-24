@@ -25,9 +25,9 @@ npm install
 ```
 ### How to configure the database
 
-3. inside the api folder type:
+3. inside the api folder create a FILE called:
 ```sh
-mkdir .env 
+ .env 
 ```
 Once this creates a file called \\\`.env`\\\ open it
 
@@ -41,7 +41,6 @@ Name the Database and click through the green ok boxes until you reach a page wi
 5. Inside the .env folder paste the following WITH the DB_URL being equal to the ElephantSQL one coppied. 
 `DB_URL=postgres://...`
 `PORT=3000`
-`BCRYPT_SALT_ROUNDS=12`
 
 5. Now still inside the api folder, run the following in the console:
 ```sh
